@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-navy: #0A1628;
+  --brand-blue: #1B3A6B;
+  --brand-accent: #2563EB;
+  --brand-gold: #C9A84C;
+  --brand-light: #F0F4FA;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    color: #1a1a2e;
+    background-color: #ffffff;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-brand-light shadow-card;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-brand-accent rounded-xl
+           hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-md shadow-blue-500/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-brand-navy bg-white rounded-xl
+           border border-brand-light hover:border-brand-accent hover:text-brand-accent
+           active:scale-95 transition-all duration-200;
+  }
+
+  .section {
+    @apply py-20 px-4;
+  }
+
+  .container-brand {
+    @apply max-w-7xl mx-auto px-4 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
