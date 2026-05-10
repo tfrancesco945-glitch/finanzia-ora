@@ -13,7 +13,7 @@ const solutions = [
       'Prestiti personali, cessione del quinto, consolidamento debiti e supporto nella gestione del profilo creditizio.',
     href: '/privati',
     color: 'text-brand-accent',
-    bg: 'bg-blue-50',
+    bg: 'bg-brand-accent-light',
     border: 'group-hover:border-brand-accent',
     cta: 'Esplora soluzioni',
   },

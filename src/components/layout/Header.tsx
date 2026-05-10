@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Lock } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const WHATSAPP_URL = 'https://wa.me/393515042449'
 
@@ -37,12 +37,10 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1 shrink-0">
-            <span className="font-playfair text-2xl font-bold tracking-tight text-brand-navy">
-              Finanzia
-            </span>
-            <span className="font-playfair text-2xl font-bold tracking-tight text-brand-gold">
-              Ora
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            <img src="/icona.svg" alt="Finanzia Ora" className="h-10 w-10" />
+            <span className="font-playfair text-xl font-bold tracking-tight text-brand-navy">
+              Finanzia <span className="text-brand-accent">Ora</span>
             </span>
           </Link>
 
@@ -57,13 +55,6 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/area-riservata"
-              className="flex items-center gap-1.5 text-sm font-medium text-brand-blue hover:text-brand-navy transition-colors duration-200"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              Area Riservata
-            </Link>
           </nav>
 
           {/* Desktop CTAs */}
@@ -88,7 +79,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-brand-navy hover:bg-brand-light transition-colors"
+            className="lg:hidden p-2 rounded-lg text-brand-gold hover:bg-brand-light transition-colors"
             aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -113,14 +104,6 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/area-riservata"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-2 text-base font-medium text-brand-blue hover:text-brand-navy hover:bg-brand-light px-3 py-3 rounded-lg transition-colors"
-          >
-            <Lock className="w-4 h-4" />
-            Area Riservata
-          </Link>
 
           <div className="flex flex-col gap-3 pt-4 border-t border-brand-light mt-2">
             <a

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   Award, Building2, MapPin, Users, Phone, Mail,
@@ -67,8 +68,8 @@ const sedi = [
 function ChiSiamoHero() {
   return (
     <section className="relative min-h-[52vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1e] via-brand-navy to-[#0d2647]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_65%_15%,rgba(37,99,235,0.12),transparent)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001a18] via-[#003333] to-[#001e1e]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_65%_15%,rgba(0,179,136,0.13),transparent)]" />
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -102,7 +103,7 @@ function BioSection() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left: photo placeholder */}
+          {/* Left: photo */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,16 +111,13 @@ function BioSection() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative bg-brand-light rounded-3xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-              <div className="flex flex-col items-center gap-4">
-                <div className="w-28 h-28 rounded-full bg-gradient-to-br from-brand-blue to-brand-accent flex items-center justify-center text-white font-playfair text-4xl font-bold shadow-xl">
-                  NS
-                </div>
-                <div className="text-center">
-                  <p className="font-playfair text-xl font-bold text-brand-navy">Nelson Secco</p>
-                  <p className="text-sm text-gray-500">Fondatore · Consulente del Credito OAM</p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
+              <Image
+                src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Nelson Secco — Consulente del Credito"
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* Floating badge */}
@@ -217,40 +215,61 @@ function ValuesSection() {
   return (
     <section className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
-          <p className="text-sm font-semibold text-brand-accent uppercase tracking-widest mb-3">
-            La nostra filosofia
-          </p>
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-brand-navy text-balance">
-            I valori che guidano il nostro lavoro
-          </h2>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+            className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl order-2 lg:order-1"
+          >
+            <Image
+              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Consulenza professionale"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          {values.map((v, i) => (
-            <motion.div key={v.title} variants={fadeUp} className="flex gap-5 p-6 bg-brand-light rounded-2xl border border-brand-light/50">
-              <span className="font-playfair text-4xl font-bold text-brand-accent/15 leading-none shrink-0 mt-1">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 className="font-semibold text-brand-navy mb-2">{v.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{v.description}</p>
-              </div>
+          {/* Right: Header + Values grid */}
+          <motion.div className="order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5 }}
+              className="mb-10"
+            >
+              <p className="text-sm font-semibold text-brand-accent uppercase tracking-widest mb-3">
+                La nostra filosofia
+              </p>
+              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-brand-navy text-balance">
+                I valori che guidano il nostro lavoro
+              </h2>
             </motion.div>
-          ))}
-        </motion.div>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {values.map((v, i) => (
+                <motion.div key={v.title} variants={fadeUp} className="flex gap-4 p-4 bg-brand-light rounded-2xl border border-brand-light/50">
+                  <span className="font-playfair text-3xl font-bold text-brand-accent/15 leading-none shrink-0 mt-1">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-brand-navy mb-1 text-sm">{v.title}</h3>
+                    <p className="text-xs text-gray-500 leading-relaxed">{v.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
@@ -258,7 +277,7 @@ function ValuesSection() {
 
 function SediSection() {
   return (
-    <section className="bg-brand-navy py-24">
+    <section className="bg-[#001a18] py-24">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

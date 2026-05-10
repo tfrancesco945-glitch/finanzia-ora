@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Check, ArrowRight, User, Briefcase } from 'lucide-react'
 
@@ -36,6 +37,7 @@ interface ServiceBlockProps {
   ctaLabel: string
   ctaHref: string
   ctaClass: string
+  imageUrl?: string
   delay?: number
 }
 
@@ -50,15 +52,27 @@ function ServiceBlock({
   ctaLabel,
   ctaHref,
   ctaClass,
+  imageUrl,
   delay = 0,
 }: ServiceBlockProps) {
   return (
     <motion.div
       variants={fadeInUp}
       transition={{ delay }}
-      className="bg-white rounded-2xl border border-brand-light shadow-card p-8 lg:p-10 flex flex-col"
+      className="bg-white rounded-2xl border border-brand-light shadow-card overflow-hidden flex flex-col"
     >
-      <div className="mb-6">
+      {imageUrl && (
+        <div className="relative h-44 w-full overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+          />
+        </div>
+      )}
+      <div className="p-8 lg:p-10 mb-6">
         <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold mb-5 ${tagColor}`}>
           <Icon className="w-3.5 h-3.5" />
           {tag}
@@ -119,14 +133,15 @@ export default function ServicesPreview() {
           <ServiceBlock
             icon={User}
             tag="Privati"
-            tagColor="bg-blue-50 text-brand-accent"
+            tagColor="bg-brand-accent-light text-brand-accent"
             title="Per le persone"
             description="Accesso facilitato al credito per privati, dipendenti, pensionati e lavoratori autonomi. Confrontiamo le migliori offerte delle banche convenzionate."
             services={servicesPrivati}
             checkColor="bg-brand-accent"
             ctaLabel="Scopri i servizi Privati"
             ctaHref="/privati"
-            ctaClass="text-white bg-brand-accent hover:bg-blue-700 shadow-md shadow-blue-500/20"
+            ctaClass="text-white bg-brand-accent hover:bg-brand-accent-dark shadow-md shadow-brand-accent/20"
+            imageUrl="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=800"
           />
           <ServiceBlock
             icon={Briefcase}
@@ -139,6 +154,7 @@ export default function ServicesPreview() {
             ctaLabel="Scopri i servizi Aziende"
             ctaHref="/aziende"
             ctaClass="text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-500/20"
+            imageUrl="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800"
             delay={0.08}
           />
         </motion.div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import {
   BarChart2, Banknote, TrendingUp,
   Check, ArrowRight, ChevronDown, Building2,
@@ -82,8 +83,8 @@ const whyUs = [
 function AziendeHero() {
   return (
     <section className="relative min-h-[62vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1e] via-brand-navy to-[#0d2647]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_70%_15%,rgba(37,99,235,0.13),transparent)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001a18] via-[#003333] to-[#001e1e]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_70%_15%,rgba(0,179,136,0.13),transparent)]" />
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -109,7 +110,7 @@ function AziendeHero() {
             Supporto professionale per PMI, imprenditori e professionisti. Accesso al credito bancario, liquidità operativa e finanziamenti agevolati con un consulente dedicato.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-            <a href="#richiedi" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-blue-600/25">
+            <a href="#richiedi" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200 shadow-lg shadow-brand-accent/25">
               Richiedi valutazione gratuita
               <ArrowRight className="w-4 h-4" />
             </a>
@@ -181,7 +182,7 @@ function ServicesSection() {
                 </ul>
                 <a
                   href="#richiedi"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all"
                 >
                   Richiedi informazioni
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -217,22 +218,40 @@ function WhyUsSection() {
             </p>
           </motion.div>
 
-          <motion.ul
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            className="space-y-3"
+            transition={{ duration: 0.55, delay: 0.1 }}
           >
-            {whyUs.map((item) => (
-              <motion.li key={item} variants={fadeUp} className="flex items-center gap-3 bg-white rounded-xl px-5 py-3.5 border border-brand-light shadow-sm">
-                <span className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                  <Check className="w-3 h-3 text-emerald-600" strokeWidth={3} />
-                </span>
-                <span className="text-sm text-gray-700">{item}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
+            {/* Image */}
+            <div className="relative h-56 rounded-2xl overflow-hidden shadow-lg mb-6">
+              <Image
+                src="https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Ufficio professionale — riunione di lavoro"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* List */}
+            <motion.ul
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              className="space-y-3"
+            >
+              {whyUs.map((item) => (
+                <motion.li key={item} variants={fadeUp} className="flex items-center gap-3 bg-white rounded-xl px-5 py-3.5 border border-brand-light shadow-sm">
+                  <span className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                    <Check className="w-3 h-3 text-emerald-600" strokeWidth={3} />
+                  </span>
+                  <span className="text-sm text-gray-700">{item}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -260,7 +279,7 @@ function FormSection() {
               <p className="text-gray-500 leading-relaxed mb-8">
                 Compila il modulo con i dati della tua azienda. Analizzeremo la situazione e ti contatteremo entro 24 ore con una prima valutazione gratuita.
               </p>
-              <div className="p-5 bg-brand-navy rounded-2xl text-white">
+              <div className="p-5 bg-[#001a18] rounded-2xl text-white">
                 <p className="text-sm font-medium mb-1">Hai urgenza? Chiamaci subito.</p>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-brand-gold text-sm hover:underline block">
                   WhatsApp: +39 351 5042449

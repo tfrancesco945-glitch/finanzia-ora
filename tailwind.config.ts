@@ -13,7 +13,10 @@ const config: Config = {
         brand: {
           navy: '#0A1628',
           blue: '#1B3A6B',
-          accent: '#2563EB',
+          accent: '#00b388',
+          'accent-dark': '#007578',
+          'accent-light': '#e6f7f3',
+          cyan: '#36c6e9',
           gold: '#C9A84C',
           light: '#F0F4FA',
         },

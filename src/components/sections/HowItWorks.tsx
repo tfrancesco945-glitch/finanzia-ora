@@ -82,7 +82,7 @@ export default function HowItWorks() {
                   <div className="w-11 h-11 rounded-full bg-white border-2 border-brand-light shadow-sm flex items-center justify-center z-10 relative">
                     <step.icon className="w-5 h-5 text-brand-accent" />
                   </div>
-                  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-brand-navy flex items-center justify-center text-[9px] font-bold text-brand-gold z-20">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center text-[9px] font-bold text-white z-20">
                     {step.number.replace('0', '')}
                   </span>
                 </div>

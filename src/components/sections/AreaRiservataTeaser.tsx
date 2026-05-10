@@ -17,7 +17,7 @@ const mockNotifications = [
 
 export default function AreaRiservataTeaser() {
   return (
-    <section className="bg-brand-navy py-24 overflow-hidden">
+    <section className="bg-[#001a18] py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -83,7 +83,7 @@ export default function AreaRiservataTeaser() {
             <div className="absolute inset-0 rounded-3xl bg-brand-accent/10 blur-2xl scale-110" />
 
             {/* Dashboard card */}
-            <div className="relative bg-[#0d1f3c] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+            <div className="relative bg-[#001f20] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
               {/* Titlebar */}
               <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.07] bg-white/[0.03]">
                 <div className="flex items-center gap-2">

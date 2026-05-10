@@ -1,5 +1,6 @@
 import HeroSection from '@/components/sections/HeroSection'
 import TrustBar from '@/components/sections/TrustBar'
+import BanksSlider from '@/components/sections/BanksSlider'
 import SolutionPicker from '@/components/sections/SolutionPicker'
 import ServicesPreview from '@/components/sections/ServicesPreview'
 import HowItWorks from '@/components/sections/HowItWorks'
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <TrustBar />
+      <BanksSlider />
       <SolutionPicker />
       <ServicesPreview />
       <HowItWorks />

@@ -5,7 +5,10 @@
 :root {
   --brand-navy: #0A1628;
   --brand-blue: #1B3A6B;
-  --brand-accent: #2563EB;
+  --brand-accent: #00b388;
+  --brand-accent-dark: #007578;
+  --brand-accent-light: #e6f7f3;
+  --brand-cyan: #36c6e9;
   --brand-gold: #C9A84C;
   --brand-light: #F0F4FA;
 }
@@ -51,7 +54,7 @@
 
   .btn-primary {
     @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-brand-accent rounded-xl
-           hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-md shadow-blue-500/20;
+           hover:bg-brand-accent-dark active:scale-95 transition-all duration-200 shadow-md shadow-brand-accent/20;
   }
 
   .btn-secondary {

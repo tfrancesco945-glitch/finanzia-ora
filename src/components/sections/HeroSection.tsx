@@ -29,8 +29,8 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1e] via-brand-navy to-[#0d2647]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_65%_10%,rgba(37,99,235,0.14),transparent)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001a18] via-[#003333] to-[#001e1e]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_65%_10%,rgba(0,179,136,0.14),transparent)]" />
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -79,7 +79,7 @@ export default function HeroSection() {
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/contatti"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-blue-600/25"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200 shadow-lg shadow-brand-accent/25"
             >
               Richiedi consulenza gratuita
               <ArrowRight className="w-4 h-4" />

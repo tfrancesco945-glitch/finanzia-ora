@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Lock } from 'lucide-react'
 
 const WHATSAPP_URL = 'https://wa.me/393515042449'
 
@@ -18,7 +19,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-white">
+    <footer className="bg-[#001a18] text-white">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
 
@@ -67,6 +68,15 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            <div className="border-t border-white/10 pt-4 mt-4">
+              <Link
+                href="/area-riservata"
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <Lock className="w-3.5 h-3.5" />
+                Area Riservata
+              </Link>
+            </div>
           </div>
 
           {/* Col 3: Contacts */}

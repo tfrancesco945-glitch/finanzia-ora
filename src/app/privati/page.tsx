@@ -26,9 +26,9 @@ const services = [
     title: 'Mutui',
     href: '/mutui',
     badge: 'Vai alla pagina',
-    badgeClass: 'bg-blue-50 text-blue-700 border-blue-200',
-    iconBg: 'bg-blue-50',
-    iconColor: 'text-blue-600',
+    badgeClass: 'bg-brand-accent-light text-brand-accent border-brand-accent/20',
+    iconBg: 'bg-brand-accent-light',
+    iconColor: 'text-brand-accent',
     description:
       'Prima casa, seconda casa, surroga, consolidamento. Confrontiamo le offerte di 12-15 banche per trovare il tasso più conveniente per il tuo profilo.',
     bullets: [
@@ -98,8 +98,8 @@ const services = [
 function PrivatiHero() {
   return (
     <section className="relative min-h-[58vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1e] via-brand-navy to-[#0d2647]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_65%_15%,rgba(37,99,235,0.13),transparent)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001a18] via-[#003333] to-[#001e1e]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_65%_15%,rgba(0,179,136,0.13),transparent)]" />
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -123,7 +123,7 @@ function PrivatiHero() {
             Mutui, prestiti, cessione del quinto e consulenza CRIF. Soluzioni su misura per ogni situazione creditizia, con un consulente al tuo fianco.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-            <a href="#servizi" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-blue-600/25">
+            <a href="#servizi" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200 shadow-lg shadow-brand-accent/25">
               Scopri i servizi
               <ArrowRight className="w-4 h-4" />
             </a>
@@ -207,7 +207,7 @@ function ServicesSection() {
                 <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-brand-light">
                   <Link
                     href={service.cta.href}
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all duration-200"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200"
                   >
                     {service.cta.label}
                     <ArrowRight className="w-3.5 h-3.5" />

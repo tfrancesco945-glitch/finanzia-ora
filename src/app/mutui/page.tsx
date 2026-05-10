@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   Users, Home, Percent, ShieldCheck, UserCheck,
@@ -29,9 +30,9 @@ const mortgageTypes = [
     title: 'Prima Casa',
     description: 'Mutuo per l\'acquisto della prima abitazione con le migliori condizioni di mercato disponibili.',
     badge: 'Classico',
-    badgeClass: 'bg-blue-50 text-blue-700 border-blue-200',
-    iconBg: 'bg-blue-50',
-    iconColor: 'text-blue-600',
+    badgeClass: 'bg-brand-accent-light text-brand-accent border-brand-accent/20',
+    iconBg: 'bg-brand-accent-light',
+    iconColor: 'text-brand-accent',
   },
   {
     icon: Percent,
@@ -129,8 +130,8 @@ const fadeUp: Variants = {
 function MutuiHero() {
   return (
     <section className="relative min-h-[62vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1e] via-brand-navy to-[#0d2647]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_70%_20%,rgba(37,99,235,0.13),transparent)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001a18] via-[#003333] to-[#001e1e]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_70%_20%,rgba(0,179,136,0.13),transparent)]" />
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -167,7 +168,7 @@ function MutuiHero() {
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
             <a
               href="#richiedi"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-blue-600/25"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200 shadow-lg shadow-brand-accent/25"
             >
               Richiedi consulenza gratuita
               <ArrowRight className="w-4 h-4" />
@@ -346,7 +347,7 @@ function FormSection() {
                 ))}
               </ul>
 
-              <div className="p-5 bg-brand-navy rounded-2xl text-white">
+              <div className="p-5 bg-[#001a18] rounded-2xl text-white">
                 <p className="text-sm font-medium mb-1">Preferisci chiamarci?</p>
                 <a
                   href={WHATSAPP_URL}
@@ -397,7 +398,7 @@ function MutuiCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contatti"
-              className="inline-flex items-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-navy rounded-xl hover:bg-brand-blue active:scale-[0.97] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200"
             >
               Vai ai contatti
               <ArrowRight className="w-4 h-4" />
@@ -426,6 +427,65 @@ function WhatsAppIcon() {
   )
 }
 
+function VisualSection() {
+  return (
+    <section className="bg-brand-light py-20">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative h-80 lg:h-[420px] rounded-3xl overflow-hidden shadow-xl"
+          >
+            <Image
+              src="https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Famiglia nella nuova casa"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+
+          {/* Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+          >
+            <p className="text-sm font-semibold text-brand-accent uppercase tracking-widest mb-4">
+              Il tuo percorso
+            </p>
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-brand-navy mb-5 text-balance">
+              Dal sogno alla chiave in mano
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-8">
+              Ti seguiamo in ogni fase del tuo percorso: dalla pre-valutazione iniziale alla firma dal notaio. Accesso prioritario alle migliori offerte di 15 banche convenzionate, con tassi e condizioni pensate per il tuo profilo specifico.
+            </p>
+            <ul className="space-y-3">
+              {[
+                'Analisi creditizia personalizzata',
+                'Confronto tra 12-15 banche partner',
+                'Gestione documentazione completa',
+                'Supporto fino alla firma e oltre',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-gray-600">
+                  <span className="w-5 h-5 rounded-full bg-brand-accent/10 flex items-center justify-center shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function MutuiPage() {
@@ -434,6 +494,7 @@ export default function MutuiPage() {
       <MutuiHero />
       <MortgageTypesSection />
       <OurMethodSection />
+      <VisualSection />
       <FormSection />
       <MutuiCTA />
     </>

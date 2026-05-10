@@ -15,10 +15,10 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative overflow-hidden bg-gradient-to-br from-brand-navy to-[#0d2647] rounded-3xl px-8 md:px-16 py-16 md:py-20 text-center"
+          className="relative overflow-hidden bg-gradient-to-br from-[#001a18] to-[#001e1e] rounded-3xl px-8 md:px-16 py-16 md:py-20 text-center"
         >
           {/* Background accents */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(37,99,235,0.15),transparent)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,179,136,0.15),transparent)]" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div
             className="absolute inset-0 opacity-[0.02]"
@@ -69,7 +69,7 @@ export default function FinalCTA() {
             >
               <Link
                 href="/contatti"
-                className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-blue-700 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-blue-600/30 w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white bg-brand-accent rounded-xl hover:bg-brand-accent-dark active:scale-[0.97] transition-all duration-200 shadow-lg shadow-brand-accent/30 w-full sm:w-auto justify-center"
               >
                 Richiedi consulenza
                 <ArrowRight className="w-4 h-4" />
