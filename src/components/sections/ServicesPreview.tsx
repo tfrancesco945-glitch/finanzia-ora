@@ -81,7 +81,7 @@ function ServiceBlock({
         <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
       </div>
 
-      <ul className="space-y-3 mb-8 flex-1">
+      <ul className="space-y-3 mb-8 flex-1 px-6">
         {services.map((service) => (
           <li key={service} className="flex items-center gap-3">
             <span className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${checkColor}`}>

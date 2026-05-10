@@ -3,26 +3,37 @@
 import * as React from 'react'
 import { motion } from 'framer-motion'
 
-const banks = [
-  { name: 'Intesa Sanpaolo', domain: 'intesasanpaolo.com' },
-  { name: 'UniCredit', domain: 'unicredit.it' },
-  { name: 'BNL', domain: 'bnl.it' },
-  { name: 'Monte dei Paschi', domain: 'mps.it' },
-  { name: 'BPER Banca', domain: 'bper.it' },
-  { name: 'Credem', domain: 'credem.it' },
-  { name: 'FinecoBank', domain: 'finecobank.com' },
-  { name: 'Mediolanum', domain: 'bancamediolanum.it' },
-  { name: 'Banco Sella', domain: 'bancasella.it' },
-  { name: 'Carige', domain: 'carige.it' },
-  { name: 'Banco BPM', domain: 'bancobpm.it' },
-  { name: 'ING Italia', domain: 'ing.it' },
-  { name: 'Deutsche Bank', domain: 'db.com' },
-  { name: 'Revolut', domain: 'revolut.com' },
-  { name: 'Qonto', domain: 'qonto.com' },
+const banks: { name: string; domain: string; localImage?: string; imgClassName?: string }[] = [
+  { name: 'Intesa Sanpaolo', domain: 'intesasanpaolo.com', imgClassName: 'h-20 object-contain' },
+  { name: 'UniCredit', domain: 'unicredit.it', localImage: '/Unicredit_logo.svg.png' },
+  { name: 'BNL', domain: 'bnl.it', localImage: '/Banca_Nazionale_del_Lavoro_logo_2022.png' },
+  { name: 'Monte dei Paschi', domain: 'mps.it', localImage: '/monte-dei-paschi-di-siena-logo-png_seeklogo-94565.png', imgClassName: 'h-20 object-contain' },
+  { name: 'BPER Banca', domain: 'bper.it', localImage: '/Logo BPER_sito istituzionale.jpg', imgClassName: 'h-20 object-contain' },
+  { name: 'Credem', domain: 'credem.it', localImage: '/Credito_Emiliano_Logo.svg.png', imgClassName: 'h-20 object-contain' },
+  { name: 'FinecoBank', domain: 'finecobank.com', localImage: '/FINECO_logo_ProWeb.png', imgClassName: 'h-20 object-contain' },
+  { name: 'Mediolanum', domain: 'bancamediolanum.it', localImage: '/banca-mediolanum.png', imgClassName: 'h-20 object-contain' },
+  { name: 'Banco Sella', domain: 'bancasella.it', localImage: '/Banca_Sella_Logo.svg.png', imgClassName: 'h-14 object-contain' },
+  { name: 'Carige', domain: 'carige.it', localImage: '/banca-carige-logo-png_seeklogo-15920.png', imgClassName: 'h-24 object-contain' },
+  { name: 'Banco BPM', domain: 'bancobpm.it', localImage: '/bmp_400x250.png', imgClassName: 'h-20 object-contain' },
+  { name: 'ING Italia', domain: 'ing.it', localImage: '/ing_yswsfv.avif' },
+  { name: 'Deutsche Bank', domain: 'db.com', localImage: '/Deutsche_Bank-Logo.svg.png', imgClassName: 'h-20 object-contain' },
+  { name: 'Revolut', domain: 'revolut.com', localImage: '/Revolut-Logo.wine.svg', imgClassName: 'h-20 object-contain' },
+  { name: 'Qonto', domain: 'qonto.com', imgClassName: 'h-20 object-contain' },
 ]
 
-function BankLogo({ domain, name }: { domain: string; name: string }) {
+function BankLogo({ domain, name, localImage, imgClassName }: { domain: string; name: string; localImage?: string; imgClassName?: string }) {
   const [logoError, setLogoError] = React.useState(false)
+  const cls = imgClassName ?? 'h-12 object-contain'
+
+  if (localImage) {
+    return (
+      <img
+        src={localImage}
+        alt={`${name} logo`}
+        className={cls}
+      />
+    )
+  }
 
   return (
     <>
@@ -30,7 +41,7 @@ function BankLogo({ domain, name }: { domain: string; name: string }) {
         <img
           src={`https://logo.clearbit.com/${domain}`}
           alt={`${name} logo`}
-          className="h-12 object-contain"
+          className={cls}
           onError={() => setLogoError(true)}
         />
       ) : (
@@ -78,7 +89,7 @@ export default function BanksSlider() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 h-32 flex flex-col items-center justify-center hover:shadow-lg transition-shadow">
-                  <BankLogo domain={bank.domain} name={bank.name} />
+                  <BankLogo domain={bank.domain} name={bank.name} localImage={bank.localImage} imgClassName={bank.imgClassName} />
                 </div>
               </motion.div>
             ))}
@@ -92,7 +103,7 @@ export default function BanksSlider() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 h-32 flex flex-col items-center justify-center hover:shadow-lg transition-shadow">
-                  <BankLogo domain={bank.domain} name={bank.name} />
+                  <BankLogo domain={bank.domain} name={bank.name} localImage={bank.localImage} imgClassName={bank.imgClassName} />
                 </div>
               </motion.div>
             ))}
