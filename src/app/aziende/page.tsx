@@ -27,6 +27,7 @@ const services = [
     iconColor: 'text-blue-600',
     tag: 'Credito aziendale',
     tagColor: 'bg-blue-50 text-blue-700',
+    imageUrl: '/credito-alle-imprese.jpg',
     title: 'Credito alle imprese',
     description:
       'Accesso facilitato al credito bancario per PMI, imprese individuali e società. Analizziamo la tua situazione e identifichiamo le linee di credito più adatte alla tua struttura aziendale.',
@@ -43,6 +44,8 @@ const services = [
     iconColor: 'text-emerald-600',
     tag: 'Liquidità',
     tagColor: 'bg-emerald-50 text-emerald-700',
+    imageUrl: '/liquidità.jpg',
+    imageClass: 'object-cover object-[center_75%]',
     title: 'Liquidità aziendale',
     description:
       'Soluzioni rapide per far fronte a esigenze di liquidità operativa: smobilizzo crediti, anticipo fatture e finanziamenti a breve termine per continuare a operare senza interruzioni.',
@@ -59,6 +62,7 @@ const services = [
     iconColor: 'text-violet-600',
     tag: 'Finanziamenti agevolati',
     tagColor: 'bg-violet-50 text-violet-700',
+    imageUrl: '/finanziamento.jpg',
     title: 'Finanziamenti e incentivi',
     description:
       'Accesso ai principali strumenti di finanza agevolata: fondi europei, Mediocredito Centrale, Cassa Depositi e Prestiti e bandi regionali per investimenti e sviluppo.',
@@ -159,7 +163,19 @@ function ServicesSection() {
         >
           {services.map((s) => (
             <motion.div key={s.title} variants={fadeUp}>
-              <div className="bg-white rounded-2xl border border-brand-light shadow-card hover:shadow-card-hover transition-all duration-300 p-8 h-full flex flex-col">
+              <div className="bg-white rounded-2xl border border-brand-light shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden h-full flex flex-col">
+                {s.imageUrl && (
+                  <div className="relative h-44 w-full overflow-hidden">
+                    <Image
+                      src={s.imageUrl}
+                      alt={s.title}
+                      fill
+                      className={s.imageClass ?? 'object-cover'}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                )}
+                <div className="p-8 flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className={`w-11 h-11 rounded-xl ${s.iconBg} flex items-center justify-center`}>
                     <s.icon className={`w-5 h-5 ${s.iconColor}`} />
@@ -187,6 +203,7 @@ function ServicesSection() {
                   Richiedi informazioni
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
+                </div>
               </div>
             </motion.div>
           ))}

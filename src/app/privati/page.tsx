@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   Home, Banknote, CreditCard, ShieldCheck,
@@ -29,6 +30,7 @@ const services = [
     badgeClass: 'bg-brand-accent-light text-brand-accent border-brand-accent/20',
     iconBg: 'bg-brand-accent-light',
     iconColor: 'text-brand-accent',
+    imageUrl: '/mutui.jpg',
     description:
       'Prima casa, seconda casa, surroga, consolidamento. Confrontiamo le offerte di 12-15 banche per trovare il tasso più conveniente per il tuo profilo.',
     bullets: [
@@ -47,6 +49,7 @@ const services = [
     badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     iconBg: 'bg-emerald-50',
     iconColor: 'text-emerald-600',
+    imageUrl: '/cessione-del-quinto.jpg',
     description:
       'Finanziamento mediante cessione di una quota dello stipendio o della pensione, direttamente trattenuta alla fonte. Nessuna busta paga aggiuntiva.',
     bullets: [
@@ -65,6 +68,7 @@ const services = [
     badgeClass: 'bg-violet-50 text-violet-700 border-violet-200',
     iconBg: 'bg-violet-50',
     iconColor: 'text-violet-600',
+    imageUrl: '/prestiti.jpg',
     description:
       'Soluzioni di credito al consumo flessibili per qualsiasi esigenza: acquisti, spese straordinarie, liquidità. Risposta rapida, condizioni personalizzate.',
     bullets: [
@@ -83,6 +87,7 @@ const services = [
     badgeClass: 'bg-amber-50 text-amber-700 border-amber-200',
     iconBg: 'bg-amber-50',
     iconColor: 'text-amber-600',
+    imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=800',
     description:
       'Supporto professionale per la verifica, la gestione e il risanamento del profilo creditizio. Ti aiutiamo a ripristinare l\'accesso al credito.',
     bullets: [
@@ -172,7 +177,19 @@ function ServicesSection() {
         >
           {services.map((service) => (
             <motion.div key={service.title} variants={fadeUp}>
-              <div className="group bg-white rounded-2xl border border-brand-light shadow-card hover:shadow-card-hover transition-all duration-300 p-8 h-full flex flex-col">
+              <div className="group bg-white rounded-2xl border border-brand-light shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden h-full flex flex-col">
+                {service.imageUrl && (
+                  <div className="relative h-44 w-full overflow-hidden">
+                    <Image
+                      src={service.imageUrl}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
+                <div className="p-8 flex flex-col flex-1">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-5">
                   <div className={`w-12 h-12 rounded-2xl ${service.iconBg} flex items-center justify-center`}>
@@ -218,6 +235,7 @@ function ServicesSection() {
                   >
                     Richiedi info
                   </a>
+                </div>
                 </div>
               </div>
             </motion.div>
