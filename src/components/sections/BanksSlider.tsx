@@ -13,18 +13,18 @@ const banks: { name: string; domain: string; localImage?: string; imgClassName?:
   { name: 'FinecoBank', domain: 'finecobank.com', localImage: '/FINECO_logo_ProWeb.png', imgClassName: 'h-20 object-contain' },
   { name: 'Mediolanum', domain: 'bancamediolanum.it', localImage: '/banca-mediolanum.png', imgClassName: 'h-20 object-contain' },
   { name: 'Banco Sella', domain: 'bancasella.it', localImage: '/Banca_Sella_Logo.svg.png', imgClassName: 'h-14 object-contain' },
-  { name: 'Carige', domain: 'carige.it', localImage: '/banca-carige-logo-png_seeklogo-15920.png', imgClassName: 'h-24 object-contain' },
+  { name: 'Carige', domain: 'carige.it', localImage: '/banca-carige-logo-png_seeklogo-15920.png', imgClassName: 'h-32 object-contain' },
   { name: 'Banco BPM', domain: 'bancobpm.it', localImage: '/bmp_400x250.png', imgClassName: 'h-20 object-contain' },
   { name: 'ING Italia', domain: 'ing.it', localImage: '/ing_yswsfv.avif' },
   { name: 'Deutsche Bank', domain: 'db.com', localImage: '/Deutsche_Bank-Logo.svg.png', imgClassName: 'h-20 object-contain' },
   { name: 'Revolut', domain: 'revolut.com', localImage: '/Revolut-Logo.wine.svg', imgClassName: 'h-20 object-contain' },
   { name: 'Qonto', domain: 'qonto.com', localImage: '/quonto.png', imgClassName: 'h-16 object-contain' },
   { name: 'CiviBank (Gruppo Sparkasse)', domain: 'civibank.it', localImage: '/logo_civibank.png', imgClassName: 'h-16 object-contain' },
-  { name: 'Sparkasse', domain: 'sparkasse.it', localImage: '/sparkasse-cassa-di-risparmio-logo-png_seeklogo-508334.png', imgClassName: 'h-16 object-contain' },
+  { name: 'Sparkasse', domain: 'sparkasse.it', localImage: '/sparkasse-cassa-di-risparmio-logo-png_seeklogo-508334.png', imgClassName: 'h-28 object-contain' },
   { name: 'BCC Veneta', domain: 'bccveneta.it', localImage: '/LOGO_BCC_VENETA_COLORE_RGB-1024x299.png', imgClassName: 'h-12 object-contain' },
   { name: 'BCC Cassa di Orvieto', domain: 'cassaorvieto.it', localImage: '/cassa-di-risparmio-di-orvieto.webp', imgClassName: 'h-20 object-contain' },
   { name: 'Volksbank', domain: 'volksbank.it', localImage: '/volksbank-vector-logo.png', imgClassName: 'h-16 object-contain' },
-  { name: 'Mediobanca Premier', domain: 'mediobancapremier.com', localImage: '/medio BANCA premier.jpeg', imgClassName: 'h-20 object-contain' },
+  { name: 'Mediobanca Premier', domain: 'mediobancapremier.com', localImage: '/medio BANCA premier.jpeg', imgClassName: 'h-28 object-contain scale-[2.2]' },
   { name: 'EmilBanca', domain: 'emilbanca.it', localImage: '/EMILBANCA.png', imgClassName: 'h-16 object-contain' },
   { name: 'Banca Adria', domain: 'bancadria.it', localImage: '/BANCA ADRIA.png', imgClassName: 'h-20 object-contain' },
   { name: 'Banca Etica', domain: 'bancaetica.it', localImage: '/Logo-bancaetica.svg.png', imgClassName: 'h-16 object-contain' },
@@ -97,7 +97,7 @@ export default function BanksSlider() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 h-32 flex flex-col items-center justify-center hover:shadow-lg transition-shadow">
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 h-32 flex flex-col items-center justify-center hover:shadow-lg transition-shadow overflow-hidden">
                   <BankLogo domain={bank.domain} name={bank.name} localImage={bank.localImage} imgClassName={bank.imgClassName} />
                 </div>
               </motion.div>
@@ -111,7 +111,7 @@ export default function BanksSlider() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 h-32 flex flex-col items-center justify-center hover:shadow-lg transition-shadow">
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 h-32 flex flex-col items-center justify-center hover:shadow-lg transition-shadow overflow-hidden">
                   <BankLogo domain={bank.domain} name={bank.name} localImage={bank.localImage} imgClassName={bank.imgClassName} />
                 </div>
               </motion.div>
