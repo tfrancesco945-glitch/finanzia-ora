@@ -4,7 +4,7 @@ import * as React from 'react'
 import { motion } from 'framer-motion'
 
 const banks: { name: string; domain: string; localImage?: string; imgClassName?: string }[] = [
-  { name: 'Intesa Sanpaolo', domain: 'intesasanpaolo.com', imgClassName: 'h-20 object-contain' },
+  { name: 'Intesa Sanpaolo', domain: 'intesasanpaolo.com', localImage: '/intesa-sanpaolo-logo-png_seeklogo-289432.png', imgClassName: 'h-20 object-contain' },
   { name: 'UniCredit', domain: 'unicredit.it', localImage: '/Unicredit_logo.svg.png' },
   { name: 'BNL', domain: 'bnl.it', localImage: '/Banca_Nazionale_del_Lavoro_logo_2022.png' },
   { name: 'Monte dei Paschi', domain: 'mps.it', localImage: '/monte-dei-paschi-di-siena-logo-png_seeklogo-94565.png', imgClassName: 'h-20 object-contain' },
@@ -18,7 +18,16 @@ const banks: { name: string; domain: string; localImage?: string; imgClassName?:
   { name: 'ING Italia', domain: 'ing.it', localImage: '/ing_yswsfv.avif' },
   { name: 'Deutsche Bank', domain: 'db.com', localImage: '/Deutsche_Bank-Logo.svg.png', imgClassName: 'h-20 object-contain' },
   { name: 'Revolut', domain: 'revolut.com', localImage: '/Revolut-Logo.wine.svg', imgClassName: 'h-20 object-contain' },
-  { name: 'Qonto', domain: 'qonto.com', imgClassName: 'h-20 object-contain' },
+  { name: 'Qonto', domain: 'qonto.com', localImage: '/quonto.png', imgClassName: 'h-16 object-contain' },
+  { name: 'CiviBank (Gruppo Sparkasse)', domain: 'civibank.it', localImage: '/logo_civibank.png', imgClassName: 'h-16 object-contain' },
+  { name: 'Sparkasse', domain: 'sparkasse.it', localImage: '/sparkasse-cassa-di-risparmio-logo-png_seeklogo-508334.png', imgClassName: 'h-16 object-contain' },
+  { name: 'BCC Veneta', domain: 'bccveneta.it', localImage: '/LOGO_BCC_VENETA_COLORE_RGB-1024x299.png', imgClassName: 'h-12 object-contain' },
+  { name: 'BCC Cassa di Orvieto', domain: 'cassaorvieto.it', localImage: '/cassa-di-risparmio-di-orvieto.webp', imgClassName: 'h-20 object-contain' },
+  { name: 'Volksbank', domain: 'volksbank.it', localImage: '/volksbank-vector-logo.png', imgClassName: 'h-16 object-contain' },
+  { name: 'Mediobanca Premier', domain: 'mediobancapremier.com', localImage: '/medio BANCA premier.jpeg', imgClassName: 'h-20 object-contain' },
+  { name: 'EmilBanca', domain: 'emilbanca.it', localImage: '/EMILBANCA.png', imgClassName: 'h-16 object-contain' },
+  { name: 'Banca Adria', domain: 'bancadria.it', localImage: '/BANCA ADRIA.png', imgClassName: 'h-20 object-contain' },
+  { name: 'Banca Etica', domain: 'bancaetica.it', localImage: '/Logo-bancaetica.svg.png', imgClassName: 'h-16 object-contain' },
 ]
 
 function BankLogo({ domain, name, localImage, imgClassName }: { domain: string; name: string; localImage?: string; imgClassName?: string }) {
@@ -76,9 +85,9 @@ export default function BanksSlider() {
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           <motion.div
-            className="flex gap-6"
-            animate={{ x: [0, -2000] }}
-            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+            className="flex gap-6 w-max"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
           >
             {/* First set */}
             {banks.map((bank, idx) => (
